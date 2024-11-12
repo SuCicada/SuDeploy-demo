@@ -1,0 +1,13 @@
+services:
+  feishin:
+    container_name: feishin
+    image: ghcr.io/jeffvli/feishin:latest
+    # user: 1000:1000 # should be owner of volumes
+    ports:
+      - "xxxxxx:9180"
+    restart: unless-stopped
+    environment:
+      SERVER_NAME: sucicada
+      SERVER_TYPE: navidrome
+      SERVER_URL: http://xxxxxx.xxxxx.me:4533
+      SERVER_LOCK: true

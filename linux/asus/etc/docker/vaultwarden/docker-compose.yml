@@ -1,0 +1,17 @@
+services:
+  vaultwarden:
+    container_name: vaultwarden
+    image: vaultwarden/server:latest
+    # user: 1000:1000 # should be owner of volumes
+    volumes:
+      - /home/peng/xxxxx/vaultwarden/data/:/data/
+    ports:
+      - xxxxxxxx:80
+    restart: unless-stopped
+    environment:
+      PUSH_ENABLED: true
+      PUSH_INSTALLATION_ID: xxxx
+      PUSH_INSTALLATION_KEY: xxxx
+      WEBSOCKET_ENABLED: true
+      PUSH_RELAY_BASE_URI: https://push.bitwarden.com 
+      

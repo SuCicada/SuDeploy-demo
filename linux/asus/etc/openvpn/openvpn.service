@@ -1,0 +1,16 @@
+[Unit]
+Description = openvpn
+After=network.target
+After=network-online.target
+
+[Service]
+ExecStart = openvpn --config /home/peng/etc/openvpn/asus.ovpn
+#ExecReload = /home/peng/TOOL/frp/frpc -c /home/peng/etc/frp/frpc.ini reload
+Restart = always
+RestartSec=5
+Type = simple
+
+[Install]
+#WantedBy = multi-user.target
+#WantedBy=network-online.target
+WantedBy=default.target

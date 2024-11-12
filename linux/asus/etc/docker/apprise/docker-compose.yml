@@ -1,0 +1,17 @@
+services:
+  apprise:
+#    user: 1000:1000
+    container_name: apprise
+    image: caronc/apprise:latest
+    # user: 1000:1000 # should be owner of volumes
+    ports:
+      - "xxxxxxxxx:8000"
+    environment:
+      PUID: 1000
+      PGID: 1000
+      APPRISE_STATEFUL_MODE: simple
+    volumes:
+      - /home/peng/etc/apprise/config:/config
+      - /home/peng/etc/apprise/plugin:/plugin
+      - /home/peng/etc/apprise/attach:/attach
+    restart: unless-stopped

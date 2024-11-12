@@ -1,0 +1,37 @@
+#!/usr/sbin/nft -f
+
+table ip my_filter {
+    chain input {
+#        type filter hook input priority 0; policy accept;
+        type filter hook input priority 0; policy drop;
+        # 允许已建立的连接
+        ct state established,related accept
+        # 允许回环接口的流量
+        iif lo accept
+
+        # 允许其他需要的流量，例如 SSH
+
+
+        # 对外开放指定端口
+        tcp dport 22 accept
+        udp dport 53 accept
+        tcp dport 53 accept
+        tcp dport 80 accept
+        tcp dport 443 accept
+
+        tcp dport {1111, 2222} accept
+        tcp dport {111-222222} accept
+        tcp dport {333-11111} accept
+        udp dport 3333 accept # openvpn
+
+        ip saddr 10.xxxx.0.0/24 accept
+        ip saddr 100.xxx.0.0/10 accept
+        ip protocol icmp icmp type { echo-request, echo-reply } accept
+        ip protocol icmp icmp type { destination-unreachable, router-advertisement, time-exceeded, parameter-problem } accept
+        counter drop
+  }
+
+    chain output {
+        type filter hook output priority 0; policy accept;
+    }
+}

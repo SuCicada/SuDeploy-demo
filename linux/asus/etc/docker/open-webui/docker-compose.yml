@@ -1,0 +1,13 @@
+services:
+  apprise:
+#    user: 1000:1000
+    container_name: open-webui
+    image: ghcr.io/open-webui/open-webui:main
+    ports:
+      - "9082:8080"
+    # environment:
+      # APPRISE_STATEFUL_MODE: simple
+    volumes:
+      - /home/peng/xxxxxx/open-webui:/app/backend/data
+    restart: unless-stopped
+åååa

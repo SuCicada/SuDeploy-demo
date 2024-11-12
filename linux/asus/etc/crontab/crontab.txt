@@ -1,0 +1,2 @@
+25 0 * * * "/home/peng/.acme.sh"/acme.sh --cron --home "/home/peng/.acme.sh" > /dev/null
+0 * * * * /home/peng/xxxx/minecraft/backup.sh >> /home/peng/xxxx/minecraft/backup.log 2>&1

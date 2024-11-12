@@ -1,0 +1,14 @@
+.idea
+tmp
+trash
+/deploy/justfile
+/deploy/install.justfile
+/deploy/script/modify_bashrc2.py
+/test/test.sh
+/test/test2.py
+/test/zshrc.sh
+/web/supervisor.html
+/linux/master/a.sh
+/linux/master/justfile
+/trash
+__pycache__

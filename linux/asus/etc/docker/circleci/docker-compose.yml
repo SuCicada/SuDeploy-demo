@@ -1,0 +1,18 @@
+services:
+  circleci-runner-agent:
+    container_name: circleci-runner-agent
+    image: sucicada/circleci-runner-agent:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./profile:/home/circleci/profile
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - CIRCLECI_RUNNER_NAME= 
+      - CIRCLECI_RUNNER_API_AUTH_TOKEN= 
+      - AWS_ACCESS_KEY_ID= 
+      - AWS_SECRET_ACCESS_KEY= 
+      - AWS_REGION= 
+      - S3_BUCKET= 

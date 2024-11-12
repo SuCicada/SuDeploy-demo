@@ -1,0 +1,15 @@
+{
+  "general": {
+    "debug": false,
+    "verify_ssl": false,
+    "backup_dir": "etc/grafana/backup"
+  },
+  "grafana": {
+    "url": "http://xxxxxx",
+    "token": "xxxxxx",
+    "search_api_limit": 5000,
+    "default_user_password": "00000000",
+    "admin_account": "xxx",
+    "admin_password": "xxxx"
+  }
+}

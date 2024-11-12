@@ -1,0 +1,17 @@
+[Unit]
+Description=Supervisor process control system for UNIX
+Documentation=http://supervisord.org
+After=network.target
+
+[Service]
+# User=peng   # 如果是--user，不能有，否则出错
+ExecStart=/usr/bin/supervisord -n -c /home/peng/etc/supervisor/supervisord.ini
+ExecStop=/usr/bin/supervisorctl $OPTIONS shutdown
+ExecReload=/usr/bin/supervisorctl -c /home/peng/etc/supervisor/supervisord.ini $OPTIONS reload
+KillMode=process
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+#WantedBy=multi-user.target
+WantedBy=default.target

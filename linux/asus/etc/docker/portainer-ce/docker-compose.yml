@@ -1,0 +1,14 @@
+services:
+  portainer-ce:
+    container_name: portainer-ce
+    ports:
+      - xx:9000
+      - xxx:9443
+      - xxx:8000
+    restart: always
+#    networks:
+#      - 1panel-network
+    volumes:
+      - /home/peng/xxxx/portainer-ce/data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    image: portainer/portainer-ce:2.20.3

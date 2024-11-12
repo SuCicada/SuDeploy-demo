@@ -1,0 +1,2 @@
+export SU_PROFILE_LOADED=true
+export PATH=$PATH:/home/peng/.nvm/versions/node/v18.18.2/bin/

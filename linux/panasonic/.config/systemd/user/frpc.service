@@ -1,0 +1,15 @@
+[Unit]
+Description = frpc
+After=network.target
+After=network-online.target
+
+[Service]
+ExecStart = frpc -c /home/sucicada/etc/frp/frpc.ini
+ExecReload = frpc -c /home/sucicada/etc/frp/frpc.ini reload
+Restart = always
+RestartSec=5
+Type = simple
+
+[Install]
+WantedBy = multi-user.target
+WantedBy=network-online.target
